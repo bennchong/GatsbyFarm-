@@ -1,24 +1,10 @@
-<div align="center">
-    <img src="static/gatsby-firebase-logo.png" alt="Logo" width='70%' height='auto'/>
-</div>
+# Gatsby Farmer 
 
-# Gatsby Firebase Authentication Starter
+This is a front end user interface for my final year project at NUS IDP Singapore. Users will be able to interact with their plants remotely and check live sensors update from FireStore.
 
-This is a gatsby starter to show how an **authentication workflow** is implemented in Gatsby using [Firebase](https://firebase.google.com/) as authentication provider.
+#Features
+1. WIP
 
-🚀 Here a [live demo](https://gatsby-firebase-simple-auth.netlify.com/) of the site.
-
-This starter follows the best practices described in the official gatsby site: 
-* [Client-only Routes](https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/) doc
-* [User Authentication](https://www.gatsbyjs.org/tutorial/authentication-tutorial/) tutorial
-
-It uses [Gatsby Plugin Firebase](https://www.gatsbyjs.org/packages/gatsby-plugin-firebase/) to import and set firebase SDK, and [Gatsby Plugin Create Client Path](https://www.gatsbyjs.org/packages/gatsby-plugin-create-client-paths) to set private routes.
-
-How it works in short:
-- Gatsby renders all unauthenticated routes as usual static pages.
-- Authenticated routes are whitelisted as client-only (in this starter all dynamic pages are under the path 'mysite.com/app/*').
-- Logged-out users are redirected to the login page if they attempt to visit private routes.
-- Logged-in users will see their private content.
 
 # Getting Started
 
@@ -42,11 +28,9 @@ npm install
 gatsby develop 
 ```
 
-# Contributing
-If you want to contribute to this starter, consider:
-
-- Reporting bugs and errors
-- Improve the documentation
-- Creating new features and pull requests
-
-All contributions are welcome!
+#Source 
+* [Gatsby Firebase Authentication Starter](https://www.gatsbyjs.com/starters/marcomelilli/gatsby-firebase-simple-auth/)
+* [Client-only Routes](https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/) 
+* [User Authentication](https://www.gatsbyjs.org/tutorial/authentication-tutorial/) 
+* [Gatsby Plugin Firebase](https://www.gatsbyjs.org/packages/gatsby-plugin-firebase/)  
+* [Gatsby Plugin Create Client Path](https://www.gatsbyjs.org/packages/gatsby-plugin-create-client-paths) 
