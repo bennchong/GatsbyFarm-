@@ -30,10 +30,10 @@ const Profile = () => {
                   <div className="text-sm"><b>Email Verified</b>:</div> 
                   <div className="pl-2 ">{`${emailVerified}`}</div>
                   </li>
-                <li> 
-                  <div className="text-sm"><b>Firebase Access Token</b>:</div> 
-                  <div className="pl-2 truncate" >{`${accessToken}`}</div>
-                </li>
+                {/*<li> */}
+                {/*  <div className="text-sm"><b>Firebase Access Token</b>:</div> */}
+                {/*  <div className="pl-2 truncate" >{`${accessToken}`}</div>*/}
+                {/*</li>*/}
             </ul>
           </p>
         </div>
