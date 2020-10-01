@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal'
 
+
 const useStyles = makeStyles({
     root: {
         borderRadius: 10
@@ -52,6 +53,7 @@ export default function PlantWikiCard({name}) {
         setOpen(false);
     };
 
+
     return (
         <Card className={classes.root}>
             <CardActionArea onClick={handleOpen}>
@@ -78,3 +80,4 @@ export default function PlantWikiCard({name}) {
         </Card>
     );
 }
+
