@@ -1,10 +1,10 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import { Link } from "gatsby"
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Typography} from "@material-ui/core";
 import {logout} from "../../utils/auth";
 import {navigate} from "@reach/router";
-import {useFirebase} from "gatsby-plugin-firebase";
+import useFirebase from "../../utils/useFirebase";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -32,11 +32,8 @@ const useStyles = makeStyles({
 
 const Header = () => {
     const classes = useStyles();
-    const [firebase, setFirebase] = useState();
+    const firebase = useFirebase();
 
-    useFirebase(fb => {
-        setFirebase(fb);
-    }, [])
     const handleClick = () => {
         logout(firebase).then(() => navigate(`/`))
     }
