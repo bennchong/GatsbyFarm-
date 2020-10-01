@@ -20,6 +20,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import LinkedCameraIcon from '@material-ui/icons/LinkedCamera';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import { Link } from "gatsby"
 
 import Header from "../Header"
 
@@ -83,6 +84,10 @@ const useStyles = makeStyles((theme) => ({
         }),
         marginLeft: 0,
     },
+    activeLink: {
+        color: "red",
+        textDecoration: "underline",
+    }
 }));
 
 const Layout = ({ children }) => {
@@ -132,25 +137,32 @@ const Layout = ({ children }) => {
                 </div>
                 <Divider />
                 <List>
-                    <ListItem button>
-                        <ListItemIcon><DashboardIcon/></ListItemIcon>
-                        <ListItemText primary={"Dashboard"} />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon><LinkedCameraIcon/></ListItemIcon>
-                        <ListItemText primary={"Live View"} />
-                    </ListItem>
-                </List>
+                    <Link to="/app/dashboard" activeClassName={classes.activeLink}>
+                        <ListItem button>
+                            <ListItemIcon><DashboardIcon/></ListItemIcon>
+                            <ListItemText primary={"Dashboard"} />
+                        </ListItem>
+                    </Link>
+                    <Link to="/app/liveview" activeClassName={classes.activeLink}>
+                        <ListItem button>
+                            <ListItemIcon><LinkedCameraIcon/></ListItemIcon>
+                            <ListItemText primary={"Live View"} />
+                        </ListItem></Link>
+                    </List>
                 <Divider />
                 <List>
-                    <ListItem button>
-                        <ListItemIcon><MenuBookIcon/></ListItemIcon>
-                        <ListItemText primary={"Plant Wiki"} />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon><SupervisedUserCircleIcon/></ListItemIcon>
-                        <ListItemText primary={"Community"} />
-                    </ListItem>
+                    <Link to="/app/plantwiki" activeClassName={classes.activeLink}>
+                        <ListItem button>
+                            <ListItemIcon><MenuBookIcon/></ListItemIcon>
+                            <ListItemText primary={"Plant Wiki"} />
+                        </ListItem>
+                    </Link>
+                    <Link to="/app/community" activeClassName={classes.activeLink}>
+                        <ListItem button>
+                            <ListItemIcon><SupervisedUserCircleIcon/></ListItemIcon>
+                            <ListItemText primary={"Community"} />
+                        </ListItem>
+                    </Link>
                 </List>
             </Drawer>
             <main
