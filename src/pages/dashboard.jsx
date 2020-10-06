@@ -8,6 +8,8 @@ import { FaTemperatureHigh, FaChartPie } from "react-icons/fa";
 import { WiHumidity } from "react-icons/wi";
 import { RiTestTubeFill } from "react-icons/ri";
 import { makeStyles } from "@material-ui/core/styles";
+import useFirebase from "../utils/useFirebase";
+import { useObject } from 'react-firebase-hooks/database';
 
 const useStyles = makeStyles({
   gridContainer: {
@@ -34,6 +36,8 @@ const useStyles = makeStyles({
 
 const Dashboard = () => {
   const classes = useStyles();
+   const firebase = useFirebase();
+    const [value, loading, error] = useObject(firebase.database().ref('sensors'));
   return (
     <View>
       <p> this is dashboard </p>
@@ -78,6 +82,11 @@ const Dashboard = () => {
           </Card>
         </Grid>
       </Grid>
+       <p>
+                {error && <strong>Error: {JSON.stringify(error)}</strong>}
+                {loading && <span>Document: Loading...</span>}
+                {value && <span>Document: {JSON.stringify(value)}</span>}
+       </p>
     </View>
   );
 };
