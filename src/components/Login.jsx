@@ -1,19 +1,16 @@
-import React from "react"
+import React, { useEffect} from "react"
 import { navigate } from '@reach/router';
 import View from "./View"
 import { useState} from "react"
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { setUser, isLoggedIn } from "../utils/auth"
-import { useFirebase } from "gatsby-plugin-firebase"
+import useFirebase from "../utils/useFirebase";
 
 import '../assets/firebaseui-styling.global.css'; // Import globally.
 
 const Login = () => {
-  const [firebase, setFirebase] = useState();
-
-  useFirebase(firebase => {
-    setFirebase(firebase);
-  }, [])
+  const firebase = useFirebase();
+  console.log(firebase);
 
   if (isLoggedIn()) {
     navigate(`/app/profile`)

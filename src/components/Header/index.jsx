@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "gatsby";
+import React, {useEffect, useState} from "react"
+import { Link } from "gatsby"
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import { Typography } from "@material-ui/core";
-import { logout } from "../../utils/auth";
-import { navigate } from "@reach/router";
-import { useFirebase } from "gatsby-plugin-firebase";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import {Typography} from "@material-ui/core";
+import {logout} from "../../utils/auth";
+import {navigate} from "@reach/router";
+import useFirebase from "../../utils/useFirebase";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 
 const useStyles = makeStyles({
   headerContainer: {
@@ -29,15 +31,13 @@ const useStyles = makeStyles({
 });
 
 const Header = () => {
-  const classes = useStyles();
-  const [firebase, setFirebase] = useState();
+    const classes = useStyles();
+    const firebase = useFirebase();
 
-  useFirebase((fb) => {
-    setFirebase(fb);
-  }, []);
-  const handleClick = () => {
-    logout(firebase).then(() => navigate(`/`));
-  };
+    const handleClick = () => {
+        logout(firebase).then(() => navigate(`/`))
+    }
+
 
   return (
     <div className={classes.headerContainer}>
