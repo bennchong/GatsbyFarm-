@@ -2,14 +2,11 @@ import React from "react"
 import { useState} from "react"
 import { Link, navigate } from "@reach/router"
 import { getUser, isLoggedIn, logout } from "../../utils/auth"
-import { useFirebase } from "gatsby-plugin-firebase"
+import useFirebase from "../../utils/useFirebase";
 
 export default () => {
-  const [firebase, setFirebase] = useState();
 
-  useFirebase(fb => {
-    setFirebase(fb);
-  }, [])
+    const firebase = useFirebase();
 
   let details;
   if (!isLoggedIn()) {

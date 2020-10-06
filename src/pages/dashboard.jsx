@@ -10,6 +10,7 @@ import { RiTestTubeFill } from "react-icons/ri";
 import { makeStyles } from "@material-ui/core/styles";
 import useFirebase from "../utils/useFirebase";
 import { useObject } from 'react-firebase-hooks/database';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles({
   gridContainer: {
@@ -38,9 +39,10 @@ const Dashboard = () => {
   const classes = useStyles();
    const firebase = useFirebase();
     const [value, loading, error] = useObject(firebase.database().ref('sensors'));
+    console.log(loading)
+  console.log(error)
   return (
     <View>
-      <p> this is dashboard </p>
       <Grid
         container
         spacing={1}
@@ -54,6 +56,7 @@ const Dashboard = () => {
             <CardContent className={classes.cardContent}>
               <FaTemperatureHigh size={"2em"} />
               <Typography> Temperature </Typography>
+              { !loading? <Typography> {value.val().Temperature} </Typography> : <CircularProgress />}
             </CardContent>
           </Card>
         </Grid>
@@ -62,6 +65,7 @@ const Dashboard = () => {
             <CardContent className={classes.cardContent}>
               <FaChartPie size={"2em"} />
               <Typography align="center"> Nutrient Content </Typography>
+              { !loading? <Typography> {value.val().EC} </Typography> : <CircularProgress />}
             </CardContent>
           </Card>
         </Grid>
@@ -70,6 +74,8 @@ const Dashboard = () => {
             <CardContent className={classes.cardContent}>
               <WiHumidity size={"2em"} />
               <Typography> Humidity </Typography>
+              { !loading? <Typography> {value.val().Humidity}% </Typography> : <CircularProgress />}
+
             </CardContent>
           </Card>
         </Grid>
@@ -78,15 +84,12 @@ const Dashboard = () => {
             <CardContent className={classes.cardContent}>
               <RiTestTubeFill size={"2em"} />
               <Typography align="center"> Water Level </Typography>
+              { !loading? <Typography> {value.val().WaterLevel}% </Typography> : <CircularProgress />}
             </CardContent>
           </Card>
         </Grid>
       </Grid>
-       <p>
-                {error && <strong>Error: {JSON.stringify(error)}</strong>}
-                {loading && <span>Document: Loading...</span>}
-                {value && <span>Document: {JSON.stringify(value)}</span>}
-       </p>
+      <p style={{alignSelf: "flex-end", fontSize: 10}}> Last Updated: {!loading? value.val().DateTime : "Loading"}</p>
     </View>
   );
 };
