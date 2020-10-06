@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 import View from "../components/View";
-import { useDocument } from 'react-firebase-hooks/firestore';
+import { useDocument } from "react-firebase-hooks/firestore";
 import useFirebase from "../utils/useFirebase";
 import { useObject } from 'react-firebase-hooks/database';
 
